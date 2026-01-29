@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Layout</title>
+
+<style>
+/* RESET */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    background-color: #F5F5DC;
+    padding: 10px;
+    text-align: center;
+    color: brown;
+}
+
+/* TOP NAVIGATION */
+ul.nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #E6E6FA;
+}
+
+ul.nav li {
+    position: relative;
+}
+
+ul.nav li a {
+    display: block;
+    padding: 14px 16px;
+    color: black;
+    text-decoration: none;
+}
+
+ul.nav li a:hover {
+    background-color: skyblue;
+}
+
+/* DROPDOWN */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: skyblue;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 30%;
+    background: #D3D3D3;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar ul li a:hover {
+    background: blue;
+    color: white;
+}
+
+/* MAIN CONTENT */
+article {
+    padding: 20px;
+    width: 70%;
+    background-color: #FFD7BE;
+    min-height: 300px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #F2F2F2;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SDIHS</h1>
+    <h2>Tlevers: LEARN EASY</h2>
+</header>
+
+<!-- TOP NAVIGATION -->
+<ul class="nav">
+    <li class="dropdown">
+        <a href="#">Home</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('mission')">Mission</a>
+            <a href="#" onclick="loadContent('vision')">Vision</a>
+            <a href="#" onclick="loadContent('corevalues')">Core Values</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">Activities</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('activity1')">Activity 1</a>
+            <a href="#" onclick="loadContent('activity2')">Activity 2</a>
+            <a href="#" onclick="loadContent('activity3')">Activity 3</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">Assessment</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('assessment1')">Assessment 1</a>
+            <a href="#" onclick="loadContent('assessment2')">Assessment 2</a>
+            <a href="#" onclick="loadContent('assessment3')">Assessment 3</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">References</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('reference')">Reference</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">About</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('about')">Group Members</a>
+        </div>
+    </li>
+</ul>
+
+<!-- CONTENT AREA -->
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#" onclick="loadContent('content')">Content</a></li>
+            <li><a href="#" onclick="loadContent('performance')">Performance Standard</a></li>
+            <li><a href="#" onclick="loadContent('standard')">Content Standard</a></li>
+            <li><a href="#" onclick="loadContent('competencies')">Learning Competencies</a></li>
+            <li><a href="#" onclick="loadContent('objectives')">Objectives</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <article id="content">
+        <h1>Batang Santo likas na matalino, mabait, at aktibo!</h1>
+        <h2>WELCOME TO OUR PERFORMANCE</h2>
+    </article>
+</div>
+
+<footer>
+    <p>© 2025 SDIHS</p>
+</footer>
+
+<script>
+function loadContent(section) {
+    const content = document.getElementById("content");
+
+    if (section === "about") {
+        content.innerHTML = `
+            <h2>About Us</h2>
+            <p><strong>Grade 10 students from Section Pulag bringing ICT to life!</strong></p>
+            <ul>
+                <li>Adrian Belista</li>
+                <li>Grant Gotual</li>
+                <li>Nathan Mamuyac</li>
+                <li>Godwin Brezuela</li>
+                <li>Cholo Cabrilias</li>
+            </ul>
+        `;
+    } else {
+        content.innerHTML = `<h2>${section.toUpperCase()}</h2><p> 
+   Materials, Tools, and Equipment for Poultry and Livestock Animals
+Housing Requirements for Poultry and Livestock Animals
+• site selection
+• types of housing
+• design and layout
+Feeding Management for Poultry and Livestock Animals
+• types of feeds
+• feed ingredients
+• feed mensuration and calculation feeding frequency
+OSH in feeding operations
+Farm Waste Management in Animal
+Production
+Products and Byproducts of Poultry and Livestock Animals raw products
+• processed products</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
